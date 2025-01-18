@@ -4,12 +4,15 @@ from constants import *
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    while True:
+    clock = pygame.time.Clock()
+    dt = 0
+
+    while True: # main game loop
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
         pygame.display.flip()
-
+        dt = clock.tick(60) / 1000
     print("Starting asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
